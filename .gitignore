@@ -71,6 +71,8 @@ Temporary Items
 .nyc_output
 coverage
 test/dist
+test-results/
+playwright-report/
 
 # #
 #   Keeweb specific folders
