@@ -1,48 +1,40 @@
 {
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "general",
   "agent": {
-    "defaultAgent": "general",
-    "instructions": "You are working on KeeWeb, a KeePass-compatible password manager. The project is in a modernization phase — treat all existing code as legacy. Do NOT change any source code in app/, build/, desktop/, plugins/, or any other non-test directory unless explicitly instructed. Only modifications allowed without explicit instruction are to test files (e2e/, test/), config files (opencode.json, AGENTS.md, playwright.config.ts, package.json for dev tooling), and documentation files (*.md).",
-    "mode": "code"
+    "general": {
+      "description": "You are working on KeeWeb, a KeePass-compatible password manager. The project is in a modernization phase — treat all existing code as legacy. Do NOT change any source code in app/, build/, desktop/, plugins/, or any other non-test directory unless explicitly instructed. Only modifications allowed without explicit instruction are to test files (e2e/, test/), config files (opencode.json, AGENTS.md, playwright.config.ts, package.json for dev tooling), and documentation files (*.md).",
+      "mode": "primary"
+    }
   },
-  "customCommands": [
-    {
-      "name": "test",
-      "command": "npm test",
+  "command": {
+    "test": {
+      "template": "npm test",
       "description": "Run the existing Mocha unit tests"
     },
-    {
-      "name": "test-e2e",
-      "command": "npx playwright test",
-      "description": "Run the Playwright e2e tests",
-      "restriction": "no"
+    "test-e2e": {
+      "template": "npx playwright test",
+      "description": "Run the Playwright e2e tests"
     },
-    {
-      "name": "test-e2e-ui",
-      "command": "npx playwright test --ui",
-      "description": "Run the Playwright e2e tests in UI mode",
-      "restriction": "no"
+    "test-e2e-ui": {
+      "template": "npx playwright test --ui",
+      "description": "Run the Playwright e2e tests in UI mode"
     },
-    {
-      "name": "test-e2e-debug",
-      "command": "npx playwright test --debug",
-      "description": "Run the Playwright e2e tests in debug mode",
-      "restriction": "no"
+    "test-e2e-debug": {
+      "template": "npx playwright test --debug",
+      "description": "Run the Playwright e2e tests in debug mode"
     },
-    {
-      "name": "build",
-      "command": "npm run start",
+    "build": {
+      "template": "npm run start",
       "description": "Build the project using grunt"
     },
-    {
-      "name": "lint",
-      "command": "npm run lint",
+    "lint": {
+      "template": "npm run lint",
       "description": "Run ESLint"
     },
-    {
-      "name": "dev-server",
-      "command": "npx http-server dist -p 8086 -s",
-      "description": "Start the static dev server for e2e tests",
-      "restriction": "no"
+    "dev-server": {
+      "template": "npx http-server dist -p 8086 -s",
+      "description": "Start the static dev server for e2e tests"
     }
-  ]
+  }
 }
